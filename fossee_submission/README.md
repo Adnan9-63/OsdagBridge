@@ -1,6 +1,6 @@
 # OsdagBridge Software Testing & Issue Reporting (Non-Civil)
 **IIT Bombay FOSSEE Winter Internship 2026 Screening Task**  
-**Author / Candidate:** Md Adnan  
+**Author:** Md Adnan  
 **Fork Repository:** [https://github.com/Adnan9-63/OsdagBridge](https://github.com/Adnan9-63/OsdagBridge) (Branch: `dev`)  
 **Upstream Target:** [https://github.com/Nidhikhare12/OsdagBridge](https://github.com/Nidhikhare12/OsdagBridge)  
 
@@ -8,7 +8,7 @@
 
 ## 1. Overview & Verified Environment
 
-This repository branch contains the complete testing dossier, automated test harness, telemetry logs, standalone regression test suite, and clean unified patches evaluating **OsdagBridge** (composite plate girder bridge design software under IRC:5, IRC:6, IRC:22, IRC:24, and IS 800:2007).
+This repository branch contains the complete test suite, automated test harnesses, saved JSON logs, standalone regression tests, and clean unified patches evaluating **OsdagBridge** (composite plate girder bridge design software under IRC:5, IRC:6, IRC:22, IRC:24, and IS 800:2007).
 
 ### Verified Environment Specifications
 All tests, GUI interactions, OpenCASCADE 3D CAD renders, and OpenSees grillage analyses were executed within Conda environment `osdagbridge-env`:
@@ -44,27 +44,27 @@ All 191 pre-existing upstream issues and pull requests on `Nidhikhare12/OsdagBri
 
 ---
 
-## 3. Master Test Matrix (16 Scenarios)
+## 3. Summary of Test Cases (TC-01 to TC-16)
 
 The comprehensive test suite (`run_test_matrix.py`, `run_deep_audit.py`, and `run_extended_audit.py`) executed 16 end-to-end scenarios covering nominal design, custom materials, boundary geometry, multi-run persistence, and secondary components:
 
 | Test ID | Scenario Description | Status | Duration | Key Observations & Verified Telemetry |
 |---|---|:---:|:---:|---|
 | **TC-01** | Baseline Nominal Design & Artifact Generation | **PASS** | 250.98s | Standard 25m span, 7.5m carriageway, Class 70R loading. Verified 3D CAD, moment/shear envelopes, and 28-page PDF report. |
-| **TC-02** | Custom Material Properties (Steel & Concrete) | **PASS** | 130.86s | Custom $f_y = 350\text{ MPa}, f_u = 490\text{ MPa}$, deck $M\,35$. Discovered `steeldesign.details.material_grade` loss in output dictionary. |
-| **TC-03** | Stiffener Material Inheritance & Configuration | **PASS** | 127.68s | Stiffener design check audit. Discovered the $1.2\text{ mm}$ end bearing thickness defect. |
+| **TC-02** | Custom Material Properties (Steel & Concrete) | **FAIL** | 130.86s | Custom $f_y = 350\text{ MPa}, f_u = 490\text{ MPa}$, deck $M\,35$. Discovered `steeldesign.details.material_grade` loss in output dictionary (Issue #263). |
+| **TC-03** | Stiffener Material Inheritance & Configuration | **PASS** | 127.68s | Stiffener design check audit. Discovered the $1.2\text{ mm}$ end bearing thickness defect (Issue #262). |
 | **TC-04** | 4 Consecutive Multi-Run State Persistence & Reset | **PASS** | 723.93s | 4 consecutive design iterations (25m $\rightarrow$ 35m $\rightarrow$ $15^\circ$ Skew $\rightarrow$ 25m) without restart. Verified memory cleanup and zero dictionary leakage. |
 | **TC-05** | .osi Save & Load Round-Trip Integrity | **PASS** | 1.04s | Validated YAML schema and serialization for baseline, custom material, stiffener, and skewed project files. |
-| **TC-06** | Boundary & Extreme Geometric Inputs | **PASS** | 0.01s | Verified input boundary rejection (10m short span clamped, 45m span, $45^\circ$ skew rejected, 60m extreme span). |
+| **TC-06** | Boundary & Extreme Geometric Inputs | **PASS** | 0.00s | Verified input boundary rejection (10m short span clamped, 45m span, $45^\circ$ skew rejected, 60m extreme span). |
 | **TC-07** | Invalid / Malformed Input & Error Handling | **PASS** | 0.32s | Verified negative spans, zero widths, and non-numeric inputs trigger modal warnings without crashing. |
-| **TC-08** | Menu Bar Actions & Signal Introspection | **PASS** | 0.02s | PySide6 reflection audit identified 8 dead QActions (Issues #53 & #123). Provided patch `fix_01`. |
-| **TC-09** | Controlled A/B Custom Material Verification | **PASS** | 195.98s | Run A (E 250, $f_y=250$) vs Run B (Custom $f_y=450$). Verified finite element solver scaling and report omission. |
+| **TC-08** | Menu Bar Actions & Signal Introspection | **FAIL** | 0.02s | PySide6 reflection audit identified 8 dead QActions (Issues #53 & #123). Provided patch `fix_01`. |
+| **TC-09** | Controlled A/B Custom Material Verification | **PASS** | 195.98s | Identical 25m geometry: Run A ($f_y=250$) vs. Run B ($f_y=450$). Both yield $M_d = \text{None}$ and $UR = 23.88$; custom grade dropped to None (Issue #263). |
 | **TC-10** | Additional Inputs Coverage (Wind, Seismic, Deck) | **PASS** | 125.14s | Zone V seismic coefficients ($Z=0.36, (S_a/g)=2.8$), $50\text{ m/s}$ basic wind speed, footpath configurations. |
-| **TC-11** | 3-Way End-to-End Consistency Audit | **PASS** | 0.09s | Cross-audited UI widgets vs `input_dict` vs `output_dict` vs PDF report. Confirmed Table 5.7 blank spacing discrepancy. |
+| **TC-11** | 3-Way End-to-End Consistency Audit | **PASS** | 0.09s | Cross-audited UI widgets vs `input_dict` vs `output_dict` vs PDF report. Confirmed Table 5.7 blank spacing discrepancy (Issue #265). |
 | **TC-12** | Multi-Run Graphical State Verification | **PASS** | 281.60s | Verified OpenCASCADE 3D viewport redraws across span transitions ($25\text{m} \rightarrow 35\text{m}$) and skew angles ($0^\circ \rightarrow 15^\circ$). |
-| **TC-13** | Concrete Deck A/B & Shear Connectors | **PASS** | 211.29s | Modular ratio updated ($m=8.00 \rightarrow 5.88$), but transformed composite $I_z$ remained $2.187\times 10^6\text{ cm}^4$ in initial sizing telemetry. |
-| **TC-14** | Custom Material .osi Round-Trip State Loss | **PASS** | 115.57s | Discovered defect where saving custom materials to `.osi` and reloading silently resets steel to `E 350A` and concrete to `M40`. |
-| **TC-15** | Secondary Component Architectural Coverage | **PASS** | 123.92s | Audited Rolled Beam, Welded Beam, Cross Bracing (K/X bracings) across all 6 components $\times$ 5 architectural layers. |
+| **TC-13** | Concrete Deck A/B & Shear Connectors | **PASS** | 211.29s | Modular ratio updated ($m=8.00 \rightarrow 5.88$), but transformed composite $I_z$ remained $2,186,569.09\text{ cm}^4$ in initial sizing telemetry. |
+| **TC-14** | Custom Material .osi Round-Trip State Loss | **FAIL** | 115.57s | Discovered defect where saving custom materials to `.osi` and reloading silently resets steel to `E 350A` and concrete to `M40` (Issue #266). |
+| **TC-15** | Component-Level Verification | **PASS** | 123.92s | Audited Rolled Beam, Welded Beam, Cross Bracing (K/X bracings) across all 6 components $\times$ 5 software layers. |
 | **TC-16** | Visual Proof Extraction & Technical Charts | **PASS** | 2.89s | Programmatically rendered Page 28 of generated PDF to extract visual proof of Table 5.7 stiffener defects (`fig_table57_stiffener_bug.png`). |
 
 ---
@@ -74,7 +74,7 @@ The comprehensive test suite (`run_test_matrix.py`, `run_deep_audit.py`, and `ru
 To verify all findings and test suites locally:
 
 ```powershell
-# 1. Run the standalone regression suite (direct imports against real modules, <15s):
+# 1. Run the standalone regression suite (direct imports against real modules, 12.28s):
 python -m pytest fossee_submission/tests/test_fossee_regression.py -v
 
 # 2. Verify all 8 unified patches apply cleanly with zero reject:
@@ -87,7 +87,7 @@ git apply --check fossee_submission/patches/*.patch
 
 ```
 fossee_submission/
-├── README.md                            # This comprehensive submission summary
+├── README.md                            # Comprehensive submission summary
 ├── osi_cases/                           # 9 verified .osi project input files
 │   ├── TC01_baseline_nominal.osi
 │   ├── TC02_custom_materials.osi
@@ -107,22 +107,21 @@ fossee_submission/
 │   ├── fix_06_stiffener_end_thickness_governing.patch
 │   ├── fix_07_osi_custom_material_reload.patch
 │   └── fix_08_intermediate_stiffener_spacing_report.patch
-├── report/                              # Formal publication-grade technical report
+├── report/                              # Technical report and proof figures
 │   ├── compile_report.py                # Standalone script to compile report
-│   ├── OsdagBridge_Testing_Report.tex   # Complete LaTeX source
-│   ├── OsdagBridge_Testing_Report.pdf   # Compiled PDF report (803 KB)
-│   └── figures/                         # High-resolution visual proof artifacts
-│       ├── fig_ab_custom_material.png
-│       ├── fig_component_coverage.png
+│   ├── generate_plots.py                # Standalone script to generate plots
+│   ├── OsdagBridge_Testing_Report.tex   # Academic LaTeX source
+│   ├── OsdagBridge_Testing_Report.pdf   # Compiled PDF report (9 pages, 699 KB)
+│   └── figures/                         # High-resolution visual proof figures
 │       ├── fig_gui_3d_cad.png
 │       ├── fig_gui_custom_material.png
 │       ├── fig_multirun_persistence.png
 │       └── fig_table57_stiffener_bug.png
 ├── tests/
-│   └── test_fossee_regression.py        # 5-test standalone regression suite
+│   └── test_fossee_regression.py        # 5-test standalone regression suite (12.28s)
 ├── scripts/
 │   ├── telemetry_logger.py              # Dictionary audit & logging hook
-│   ├── run_test_matrix.py               # Master TC-01 to TC-08 test runner
+│   ├── run_test_matrix.py               # TC-01 to TC-08 test runner
 │   ├── run_deep_audit.py                # TC-09 to TC-12 deep audit runner
 │   └── run_extended_audit.py            # TC-13 to TC-16 extended audit runner
 └── logs/
