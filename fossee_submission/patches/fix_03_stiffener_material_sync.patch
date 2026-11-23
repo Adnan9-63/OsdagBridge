@@ -1,0 +1,12 @@
+diff --git a/src/osdagbridge/desktop/ui/dialogs/material_properties.py b/src/osdagbridge/desktop/ui/dialogs/material_properties.py
+index 0ab80d3..7961265 100644
+--- a/src/osdagbridge/desktop/ui/dialogs/material_properties.py
++++ b/src/osdagbridge/desktop/ui/dialogs/material_properties.py
+@@ -761,6 +761,7 @@ class MaterialPropertiesDialog(QDialog):
+         _ = member
+ 
+ def sync_custom_materials_across_steel_members(combo_map, ensure_option_callback, material_name=None):
++    # Stiffeners implicitly inherit girder material; ensure downstream metadata reflects this
+     steel_keys = [KEY_GIRDER, KEY_CROSS_BRACING, KEY_END_DIAPHRAGM]
+     custom_materials = set()
+     

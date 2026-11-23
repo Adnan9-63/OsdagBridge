@@ -1,0 +1,1067 @@
+{
+  "timestamp": "2026-11-20T22:03:08.585197",
+  "input_dock": {
+    "structure.type": {
+      "type": "QComboBox",
+      "current_text": "Highway Bridge",
+      "current_index": 0,
+      "items": [
+        "Highway Bridge",
+        "Other"
+      ],
+      "is_enabled": false
+    },
+    "geometry.span": {
+      "type": "QLineEdit",
+      "text": "35.0",
+      "is_enabled": false
+    },
+    "geometry.carriageway_width": {
+      "type": "QLineEdit",
+      "text": "7.5",
+      "is_enabled": false
+    },
+    "geometry.include_median": {
+      "type": "QComboBox",
+      "current_text": "No",
+      "current_index": 0,
+      "items": [
+        "No",
+        "Yes"
+      ],
+      "is_enabled": false
+    },
+    "geometry.footpath": {
+      "type": "QComboBox",
+      "current_text": "None",
+      "current_index": 0,
+      "items": [
+        "None",
+        "Single Side",
+        "Both Sides"
+      ],
+      "is_enabled": false
+    },
+    "geometry.skew_angle": {
+      "type": "QLineEdit",
+      "text": "",
+      "is_enabled": false
+    },
+    "geometry.design_mode": {
+      "type": "QComboBox",
+      "current_text": "Optimized",
+      "current_index": 0,
+      "items": [
+        "Optimized",
+        "Custom"
+      ],
+      "is_enabled": false
+    },
+    "material.girder": {
+      "type": "QComboBox",
+      "current_text": "custom_steel_350_490",
+      "current_index": 28,
+      "items": [
+        "E 250A",
+        "E 250B0",
+        "E 250BR",
+        "E 250C",
+        "E 275A",
+        "E 275B0",
+        "E 275BR",
+        "E 275C",
+        "E 300A",
+        "E 300B0",
+        "E 300BR",
+        "E 300C",
+        "E 350A",
+        "E 350B0",
+        "E 350BR",
+        "E 350C",
+        "E 410A",
+        "E 410B0",
+        "E 410BR",
+        "E 410C",
+        "E 450A",
+        "E 450BR",
+        "E 550A",
+        "E 550BR",
+        "E 600A",
+        "E 600BR",
+        "E 650A",
+        "E 650BR",
+        "custom_steel_350_490",
+        "Custom"
+      ],
+      "is_enabled": false
+    },
+    "material.cross_bracing": {
+      "type": "QComboBox",
+      "current_text": "E 350A",
+      "current_index": 12,
+      "items": [
+        "E 250A",
+        "E 250B0",
+        "E 250BR",
+        "E 250C",
+        "E 275A",
+        "E 275B0",
+        "E 275BR",
+        "E 275C",
+        "E 300A",
+        "E 300B0",
+        "E 300BR",
+        "E 300C",
+        "E 350A",
+        "E 350B0",
+        "E 350BR",
+        "E 350C",
+        "E 410A",
+        "E 410B0",
+        "E 410BR",
+        "E 410C",
+        "E 450A",
+        "E 450BR",
+        "E 550A",
+        "E 550BR",
+        "E 600A",
+        "E 600BR",
+        "E 650A",
+        "E 650BR",
+        "Custom"
+      ],
+      "is_enabled": false
+    },
+    "material.end_diaphragm": {
+      "type": "QComboBox",
+      "current_text": "E 350A",
+      "current_index": 12,
+      "items": [
+        "E 250A",
+        "E 250B0",
+        "E 250BR",
+        "E 250C",
+        "E 275A",
+        "E 275B0",
+        "E 275BR",
+        "E 275C",
+        "E 300A",
+        "E 300B0",
+        "E 300BR",
+        "E 300C",
+        "E 350A",
+        "E 350B0",
+        "E 350BR",
+        "E 350C",
+        "E 410A",
+        "E 410B0",
+        "E 410BR",
+        "E 410C",
+        "E 450A",
+        "E 450BR",
+        "E 550A",
+        "E 550BR",
+        "E 600A",
+        "E 600BR",
+        "E 650A",
+        "E 650BR",
+        "Custom"
+      ],
+      "is_enabled": false
+    },
+    "material.deck": {
+      "type": "QComboBox",
+      "current_text": "M40",
+      "current_index": 5,
+      "items": [
+        "M15",
+        "M20",
+        "M25",
+        "M30",
+        "M35",
+        "M40",
+        "M45",
+        "M50",
+        "M55",
+        "M60",
+        "M65",
+        "M70",
+        "M75",
+        "M80",
+        "M85",
+        "M90",
+        "Custom"
+      ],
+      "is_enabled": false
+    },
+    "_material_custom_fields": {
+      "custom_steel_350_490": {
+        "material.girder.fy": "350.0",
+        "material.girder.fu": "490.0",
+        "material.girder.e": "200000.0",
+        "material.girder.g": "77000.0",
+        "material.girder.poisson": "0.30",
+        "material.girder.density": "78.5",
+        "material.girder.thermal_expansion": "11.7"
+      }
+    },
+    "_material_combo_map": {
+      "material.girder": "custom_steel_350_490",
+      "material.cross_bracing": "E 350A",
+      "material.end_diaphragm": "E 350A",
+      "material.deck": "M40"
+    }
+  },
+  "additional_inputs": {
+    "design_options_cont.partial_factor.concrete_basic.gamma_c_basic": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.concrete_accidental.gamma_c_accidental": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.yielding_and_buckling.gamma_m0": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.ultimate_stress.gamma_m1": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.reinforcing_steel.gamma_s": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.shear_connectors.gamma_v": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.fatigue_load.gamma_flt": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.partial_factor.fatigue_strength.gamma_mf": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.fatigue.load_cycles": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.camber.mode": {
+      "type": "QComboBox",
+      "current_text": "Default"
+    },
+    "design_options_cont.camber.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options_cont.uls.bending_resistance": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.uls.vertical_shear": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.uls.lateral_torsional_buckling": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.uls.transverse_force": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.uls.longitudinal_shear": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.uls.fatigue": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.sls.stress_limitation": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.sls.longitudinal_shear": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.sls.deflection_control": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options_cont.sls.crack_width": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "design_options.construction.stage": {
+      "type": "QComboBox",
+      "current_text": "Yes"
+    },
+    "design_options.deck.reinforcement_material": {
+      "type": "QComboBox",
+      "current_text": "Fe 415"
+    },
+    "design_options.deck.top_clear_cover": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.deck.bottom_clear_cover": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.deck.side_clear_cover": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.shear_studs.yield_strength": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.shear_studs.ultimate_strength": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.shear_studs.diameter": {
+      "type": "QComboBox",
+      "current_text": "12"
+    },
+    "design_options.shear_studs.height": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "design_options.shear_studs.count": {
+      "type": "QComboBox",
+      "current_text": "1"
+    },
+    "design_options.shear_studs.transverse_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.highest_max_temp": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.lowest_min_temp": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.thermal_coeff_steel": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.thermal_coeff_rcc": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.computed.bridge_temp_min": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.computed.bridge_temp_max": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.computed.temp_rise": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.temperature_load.computed.temp_fall": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.basic_wind_speed": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.avg_exposed_height": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.terrain_type": {
+      "type": "QComboBox",
+      "current_text": "Plain Terrain"
+    },
+    "loading.wind_load.site_topography": {
+      "type": "QComboBox",
+      "current_text": "Flat"
+    },
+    "loading.wind_load.gust_factor.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.gust_factor.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.drag_coeff.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.drag_coeff.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.drag_coeff_ll.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.drag_coeff_ll.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.lift_coeff.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.lift_coeff.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.super_area_elev.mode": {
+      "type": "QComboBox",
+      "current_text": "Automatic"
+    },
+    "loading.wind_load.super_area_elev.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.super_area_plain.mode": {
+      "type": "QComboBox",
+      "current_text": "Automatic"
+    },
+    "loading.wind_load.super_area_plain.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.exposed_frontal_area.mode": {
+      "type": "QComboBox",
+      "current_text": "Automatic"
+    },
+    "loading.wind_load.exposed_frontal_area.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.wind_ecc_deck.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.wind_ecc_deck.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.wind_ll_ecc.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.wind_load.wind_ll_ecc.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.computed.hourly_mean_wind": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.wind_load.computed.hourly_wind_pressure": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.seismic_zone": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.importance_factor": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.soil_type": {
+      "type": "QComboBox",
+      "current_text": "Type I \u2013 Rocky or Hard"
+    },
+    "loading.seismic_load.time_period": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.damping": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.response_reduction_factor": {
+      "type": "QComboBox",
+      "current_text": "1"
+    },
+    "loading.seismic_load.dead_load.mode": {
+      "type": "QComboBox",
+      "current_text": "Automatic"
+    },
+    "loading.seismic_load.dead_load.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.live_load.mode": {
+      "type": "QComboBox",
+      "current_text": "Automatic"
+    },
+    "loading.seismic_load.live_load.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.computed.zone_factor": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.computed.spectral_coeff": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.computed.horizontal_coeff": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.seismic_load.computed.vertical_coeff": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.live_load.irc.class_a": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.aa_wheeled": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.aa_tracked": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.70r_wheeled": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.70r_tracked": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.70r_bogie": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.class_sv": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "loading.live_load.irc.class_fatigue": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "bl_irc_class_sv": {
+      "type": "QCheckBox",
+      "checked": true
+    },
+    "loading.live_load.eccentricity": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.live_load.footpath_pressure.mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "loading.live_load.footpath_pressure.value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "loading.permanent_load.dead_load.self_weight_factor": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.select_girders": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "member_properties.end_diaphragm_details.member_id": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.type": {
+      "type": "QComboBox",
+      "current_text": "Cross Bracing"
+    },
+    "member_properties.end_diaphragm_details.bracing_type": {
+      "type": "QComboBox",
+      "current_text": "K-Bracing"
+    },
+    "member_properties.end_diaphragm_details.bracing_connection": {
+      "type": "QComboBox",
+      "current_text": "Bolted"
+    },
+    "member_properties.end_diaphragm_details.bracing_section": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.end_diaphragm_details.bracing_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.end_diaphragm_details.top_chord": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "member_properties.end_diaphragm_details.top_chord_section_type": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.end_diaphragm_details.top_chord_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.end_diaphragm_details.bottom_chord": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "member_properties.end_diaphragm_details.bottom_chord_section_type": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.end_diaphragm_details.bottom_chord_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.end_diaphragm_details.is_section": {
+      "type": "QComboBox",
+      "current_text": "JB 150"
+    },
+    "member_properties.end_diaphragm_details.symmetry": {
+      "type": "QComboBox",
+      "current_text": "Girder Symmetric"
+    },
+    "member_properties.end_diaphragm_details.total_depth": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.web_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.end_diaphragm_details.top_flange_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.top_flange_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.end_diaphragm_details.bottom_flange_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.bottom_flange_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.end_diaphragm_details.section_properties.mass": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.section_properties.area": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.section_properties.iz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.section_properties.iy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.section_properties.radius_gyration_z": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.section_properties.radius_gyration_y": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.material_properties.elastic_modulus_zz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.material_properties.elastic_modulus_zy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.material_properties.plastic_modulus_zuz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.end_diaphragm_details.material_properties.plastic_modulus_zuy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.cross_bracing_details.select_girders": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "member_properties.cross_bracing_details.no_of_cross_bracings": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.cross_bracing_details.member_id": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.cross_bracing_details.type": {
+      "type": "QComboBox",
+      "current_text": "K-Bracing"
+    },
+    "member_properties.cross_bracing_details.bracing_connection": {
+      "type": "QComboBox",
+      "current_text": "Bolted"
+    },
+    "member_properties.cross_bracing_details.bracing_section_type": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.cross_bracing_details.bracing_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.cross_bracing_details.top_chord": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "member_properties.cross_bracing_details.top_chord_section_type": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.cross_bracing_details.top_chord_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.cross_bracing_details.bottom_chord": {
+      "type": "QCheckBox",
+      "checked": false
+    },
+    "member_properties.cross_bracing_details.bottom_chord_section_type": {
+      "type": "QComboBox",
+      "current_text": "Angle"
+    },
+    "member_properties.cross_bracing_details.bottom_chord_section_designation": {
+      "type": "QComboBox",
+      "current_text": "\u2220 100 \u2179 100\u2179 10"
+    },
+    "member_properties.cross_bracing_details.spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.stiffener_details.select_member_id": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "member_properties.stiffener_details.no_bearing_stiffeners_each_end": {
+      "type": "QComboBox",
+      "current_text": "1"
+    },
+    "member_properties.stiffener_details.bearing_stiffener_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.stiffener_details.bearing_stiffener_plate_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.stiffener_details.bearing_stiffener_outstand": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.stiffener_details.intermediate_stiffener": {
+      "type": "QComboBox",
+      "current_text": "No"
+    },
+    "member_properties.stiffener_details.intermediate_stiffener_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.stiffener_details.intermediate_stiffener_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.stiffener_details.intermediate_stiffener_outstand": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.stiffener_details.longitudinal_stiffener": {
+      "type": "QComboBox",
+      "current_text": "No"
+    },
+    "member_properties.stiffener_details.longitudinal_stiffener_thickness": {
+      "type": "QComboBox",
+      "current_text": "8"
+    },
+    "member_properties.stiffener_details.design_method": {
+      "type": "QComboBox",
+      "current_text": "Simple Post Critical"
+    },
+    "member_properties.girder_details.select_girder": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "member_properties.girder_details.total_span": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.member_id": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "member_properties.girder_details.section_input.type": {
+      "type": "QComboBox",
+      "current_text": "Welded"
+    },
+    "member_properties.girder_details.section_input.symmetry": {
+      "type": "QComboBox",
+      "current_text": "Girder Symmetric"
+    },
+    "member_properties.girder_details.section_input.depth": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_input.top_flange_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_input.top_flange_thickness": {
+      "type": "QComboBox",
+      "current_text": "All"
+    },
+    "member_properties.girder_details.section_input.bottom_flange_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_input.bottom_flange_thickness": {
+      "type": "QComboBox",
+      "current_text": "All"
+    },
+    "member_properties.girder_details.section_input.web_thickness": {
+      "type": "QComboBox",
+      "current_text": "All"
+    },
+    "member_properties.girder_details.section_inputs.support_type": {
+      "type": "QComboBox",
+      "current_text": "Major Laterally Supported"
+    },
+    "member_properties.girder_details.section_inputs.support_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_input.is_section": {
+      "type": "QComboBox",
+      "current_text": "JB 150"
+    },
+    "member_properties.girder_details.section_input.torsional_restraint": {
+      "type": "QComboBox",
+      "current_text": "Fully Restrained"
+    },
+    "member_properties.girder_details.section_input.warping_restraint": {
+      "type": "QComboBox",
+      "current_text": "Both Flanges Restrained"
+    },
+    "member_properties.girder_details.section_input.web_type": {
+      "type": "QComboBox",
+      "current_text": "Thin Web with ITS"
+    },
+    "member_properties.girder_details.section_properties.mass": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.area": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.iz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.iy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.radius_gyration_z": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.radius_gyration_y": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.material_properties.modulus_of_elasticity_zz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.material_properties.modulus_of_elasticity_zy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.material_properties.plastic_modulus_zuz": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.material_properties.plastic_modulus_zuy": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.torsion_constant_it": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "member_properties.girder_details.section_properties.warping_constant_iw": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.no_of_girders": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.girder_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.deck_overhang": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.overall_bridge_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.lane_details.lane_table_count": {
+      "type": "QComboBox",
+      "current_text": "1"
+    },
+    "typical_section.wearing_course.material": {
+      "type": "QComboBox",
+      "current_text": "Concrete"
+    },
+    "typical_section.wearing_course.density": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.wearing_course.thickness": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.railing.type": {
+      "type": "QComboBox",
+      "current_text": "IRC 5 - RCC Railing"
+    },
+    "typical_section.railing.width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.railing.height": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.railing.load_mode": {
+      "type": "QComboBox",
+      "current_text": "As per IRC 6"
+    },
+    "typical_section.railing.load_value": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.type": {
+      "type": "QComboBox",
+      "current_text": "IRC 5 - Raised Kerb"
+    },
+    "typical_section.median.density": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.height": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.area": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.load": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.median.post_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.type": {
+      "type": "QComboBox",
+      "current_text": "IRC 5 - RCC Crash Barrier"
+    },
+    "typical_section.crash_barrier.density": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.height": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.area": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.load": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.crash_barrier.post_spacing": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.deck_thickness": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.footpath_width": {
+      "type": "QLineEdit",
+      "text": ""
+    },
+    "typical_section.footpath_thickness": {
+      "type": "QLineEdit",
+      "text": ""
+    }
+  },
+  "output_dock": {
+    "analysis.member": {
+      "type": "QComboBox",
+      "current_text": "All"
+    },
+    "analysis.load_combination": {
+      "type": "QComboBox",
+      "current_text": "SW"
+    },
+    "dock.member_id": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "dock.load_combination": {
+      "type": "QComboBox",
+      "current_text": ""
+    },
+    "button_label": {
+      "type": "QLabel",
+      "text": "Generate Report"
+    }
+  }
+}

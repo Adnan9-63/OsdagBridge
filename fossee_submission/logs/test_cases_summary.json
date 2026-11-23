@@ -1,0 +1,264 @@
+{
+  "test_suite": "OsdagBridge Automated Testing Suite (Comprehensive 16-Scenario Master Matrix)",
+  "timestamp": "2026-11-21T19:20:43.880221",
+  "total_tests": 16,
+  "passed": 13,
+  "failed": 3,
+  "results": [
+    {
+      "test_id": "TC-01",
+      "name": "Baseline Nominal Design & Artifact Generation",
+      "status": "PASS",
+      "duration_sec": 250.98,
+      "details": "Locked=True, URs=True, CAD=True, PDF=True, Outputs=1066",
+      "telemetry": {
+        "run_id": 1,
+        "ui_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_1_ui_values.json",
+        "inp_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_1_input_dict.json",
+        "out_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_1_output_dict.json",
+        "audit_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_1_dict_audit.json",
+        "audit_status": "WARNINGS_FOUND"
+      }
+    },
+    {
+      "test_id": "TC-02",
+      "name": "Custom Material Properties (Steel & Concrete)",
+      "status": "FAIL",
+      "duration_sec": 130.86,
+      "details": "Propagated=False, OutputGrade=None, fy=None",
+      "telemetry": {
+        "run_id": 2,
+        "ui_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_2_ui_values.json",
+        "inp_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_2_input_dict.json",
+        "out_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_2_output_dict.json",
+        "audit_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_2_dict_audit.json",
+        "audit_status": "WARNINGS_FOUND"
+      }
+    },
+    {
+      "test_id": "TC-03",
+      "name": "Stiffener Material Inheritance & Configuration",
+      "status": "PASS",
+      "duration_sec": 127.68,
+      "details": "Stiffener Int Thk=17.4, End Thk=1.2",
+      "telemetry": {
+        "run_id": 3,
+        "ui_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_3_ui_values.json",
+        "inp_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_3_input_dict.json",
+        "out_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_3_output_dict.json",
+        "audit_file": "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\logs\\run_3_dict_audit.json",
+        "audit_status": "WARNINGS_FOUND"
+      }
+    },
+    {
+      "test_id": "TC-04",
+      "name": "4 Consecutive Multi-Run State Persistence & Reset",
+      "status": "PASS",
+      "duration_sec": 723.93,
+      "details": "Subruns=[('Run1_25m', 1390.0), ('Run2_35m', 1950.0), ('Run3_Skew15', 1950.0), ('Run4_ReloadTC1', 1390.0)], Scaled(35m>25m)=True, Restored(Run4==Run1)=True"
+    },
+    {
+      "test_id": "TC-05",
+      "name": ".osi Save & Load Round-Trip Integrity",
+      "status": "PASS",
+      "duration_sec": 1.04,
+      "details": "Tested 4 files. Diffs: [('TC01_baseline_nominal.osi', 'Valid schema & clean UI population'), ('TC02_custom_materials.osi', 'Valid schema & clean UI population'), ('TC03_stiffeners.osi', 'Valid schema & clean UI population'), ('TC04_multirun_final.osi', 'Valid schema & clean UI population')]"
+    },
+    {
+      "test_id": "TC-06",
+      "name": "Boundary & Extreme Geometric Inputs",
+      "status": "PASS",
+      "duration_sec": 0.0,
+      "details": "Boundary checks: [{'span': 10.0, 'cw': 4.25, 'skew': 0.0, 'span_valid': False, 'cw_valid': True, 'skew_valid': True, 'note': 'Minimum short span & single lane'}, {'span': 45.0, 'cw': 10.5, 'skew': 30.0, 'span_valid': True, 'cw_valid': True, 'skew_valid': False, 'note': 'Long span & 30 deg skew'}, {'span': 60.0, 'cw': 12.0, 'skew': 45.0, 'span_valid': False, 'cw_valid': True, 'skew_valid': False, 'note': 'Extreme maximum plate girder span'}]"
+    },
+    {
+      "test_id": "TC-07",
+      "name": "Invalid / Malformed Input & Graceful Error Handling",
+      "status": "PASS",
+      "duration_sec": 0.32,
+      "details": "Validation audits: [('Negative Span Caught', True), ('Zero Span Caught', True), ('Material Validation Active', True), ('Empty Required Field Rejected', True)]"
+    },
+    {
+      "test_id": "TC-08",
+      "name": "Menu Bar Actions & UI Controls Signal Audit",
+      "status": "FAIL",
+      "duration_sec": 0.02,
+      "details": "Found 8 dead/unconnected menu actions in template_page.py: [Save Log Messages, Quit, Show Front View, Show Top View, Show Side View, Save Inputs (.osi), Reset, Download Database sub-actions]. Patch fix_01_dead_menu_actions.patch provided.",
+      "dead_actions": [
+        "Save Log Messages",
+        "Quit",
+        "Show Front View",
+        "Show Top View",
+        "Show Side View",
+        "Save Inputs (.osi)",
+        "Reset",
+        "Download Database"
+      ]
+    },
+    {
+      "test_id": "TC-09",
+      "name": "Controlled A/B Custom Material Verification (Steel & Deck)",
+      "status": "PASS",
+      "duration_sec": 195.98,
+      "details": "A(E250): Md=None, UR_flex=23.880000000000003, Depth=1390.0 | B(Custom450): Md=None, UR_flex=23.880000000000003, Depth=1390.0 | CapacityScaled=False, OutputGradeNone=True",
+      "ab_comparison": {
+        "run_a_default": {
+          "fy": 250,
+          "fck": 25,
+          "Md": null,
+          "UR_flex": 23.880000000000003,
+          "depth": 1390.0
+        },
+        "run_b_custom": {
+          "fy": 450,
+          "fck": 45,
+          "Md": null,
+          "UR_flex": 23.880000000000003,
+          "depth": 1390.0,
+          "output_grade": null
+        },
+        "capacity_scaled": false,
+        "grade_dropped_to_none": true
+      }
+    },
+    {
+      "test_id": "TC-10",
+      "name": "Additional Inputs Coverage (Location/Wind/Seismic, Vehicles, Deck)",
+      "status": "PASS",
+      "duration_sec": 125.14,
+      "details": "WindSpeed=50 m/s, SeismicZone=V, Footpath=Both"
+    },
+    {
+      "test_id": "TC-11",
+      "name": "3-Way End-to-End Consistency Audit (UI vs Dict vs PDF Report)",
+      "status": "PASS",
+      "duration_sec": 0.09,
+      "details": "Audit identified 2 verified discrepancies across UI/OutputDict/Report layers",
+      "discrepancies": [
+        {
+          "component": "Intermediate Stiffener",
+          "issue": "Intermediate Stiffener Spacing rendered as empty blank in Table 5.7",
+          "output_dict_val": null,
+          "severity": "HIGH"
+        },
+        {
+          "component": "Report Header",
+          "issue": "Cross Bracing Steel Grade rendered from input_dict regardless of connection design pool status",
+          "severity": "LOW"
+        }
+      ]
+    },
+    {
+      "test_id": "TC-12",
+      "name": "Multi-Run Visual & Graphical State Verification (CAD & Plots)",
+      "status": "PASS",
+      "duration_sec": 281.6,
+      "details": "Visual checks: [('Run1_25m_CAD_Span', True), ('Run2_35m_CAD_Span', True), ('Run3_Skew15_CAD_Angle', True), ('Run4_Reload_CAD_Restored', True)]"
+    },
+    {
+      "test_id": "TC-13",
+      "name": "Controlled Custom Concrete Deck A/B & Shear Connectors Verification",
+      "status": "PASS",
+      "duration_sec": 211.29,
+      "details": "A(M25): CompIz=2186569.09, PNA=252.8, StudSpacing=315.35mm | B(CustomM45): CompIz=2186569.09, PNA=252.8, StudSpacing=315.35mm | ModularRatio: 8.00->5.88, CompositeStiffnessScaled=False",
+      "deck_comparison": {
+        "run_a_m25": {
+          "fck": 25.0,
+          "Ecm": 25000.0,
+          "m": 8.0,
+          "composite_iz": 2186569.09,
+          "pna_depth": 252.8,
+          "stud_spacing": 315.35
+        },
+        "run_b_m45": {
+          "fck": 45.0,
+          "Ecm": 34000.0,
+          "m": 5.882352941176471,
+          "composite_iz": 2186569.09,
+          "pna_depth": 252.8,
+          "stud_spacing": 315.35
+        },
+        "composite_iz_scaled": false
+      }
+    },
+    {
+      "test_id": "TC-14",
+      "name": "Custom Material .osi Save -> Reset -> Reload -> Re-run Round-Trip",
+      "status": "FAIL",
+      "duration_sec": 115.57,
+      "details": "OSI Valid=True, Reloaded fy=350.0MPa, fck=40.0MPa | MdMatch=False (NonekNm), CompositeIzMatch=True",
+      "roundtrip_audit": {
+        "saved_osi_exists": true,
+        "osi_validation_valid": true,
+        "reloaded_girder": "E 350A",
+        "reloaded_fy": "350.0",
+        "reloaded_deck": "M40",
+        "reloaded_fck": "40.0"
+      }
+    },
+    {
+      "test_id": "TC-15",
+      "name": "Full Secondary Component Coverage (Cross Bracing, End Diaphragms & Shear)",
+      "status": "PASS",
+      "duration_sec": 123.92,
+      "details": "Verified 6 Bridge Components across 5 architectural layers (UI, Dict, OutputDict, Dock, Report). All secondary configurations (Rolled Beam, Welded Beam, Cross Bracing, K/X bracings) executed cleanly.",
+      "coverage_matrix": {
+        "Main Plate Girder": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "PASS",
+          "OutputDock": "PASS",
+          "PDFReport": "PASS"
+        },
+        "Intermediate & Bearing Stiffeners": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "FAIL (1.2mm BUG)",
+          "OutputDock": "PASS",
+          "PDFReport": "FAIL (Table 5.7 BUG)"
+        },
+        "Cross Bracing Members": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "PASS",
+          "OutputDock": "PASS",
+          "PDFReport": "PASS"
+        },
+        "End Diaphragm Assemblies": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "PASS",
+          "OutputDock": "PASS",
+          "PDFReport": "PASS"
+        },
+        "Shear Connectors (Studs)": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "PASS",
+          "OutputDock": "PASS",
+          "PDFReport": "PASS"
+        },
+        "Reinforced Concrete Deck Slab": {
+          "UI": "PASS",
+          "InputDict": "PASS",
+          "OutputDict": "PASS",
+          "OutputDock": "PASS",
+          "PDFReport": "PASS"
+        }
+      }
+    },
+    {
+      "test_id": "TC-16",
+      "name": "Visual Proof Extraction (Table 5.7 Stiffener Render) & Technical Charts",
+      "status": "PASS",
+      "duration_sec": 2.89,
+      "details": "Generated 4 publication-quality visual proof artifacts in report/figures/",
+      "artifacts": [
+        "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\report\\figures\\fig_table57_stiffener_bug.png",
+        "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\report\\figures\\fig_ab_custom_material.png",
+        "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\report\\figures\\fig_multirun_persistence.png",
+        "C:\\Users\\ADNAN\\OneDrive\\Projects\\FOSSE IITB\\fossee_submission\\report\\figures\\fig_component_coverage.png"
+      ]
+    }
+  ]
+}

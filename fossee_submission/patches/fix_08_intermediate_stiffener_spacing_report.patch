@@ -1,0 +1,25 @@
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/designer.py b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+index 3b3b982..6708d72 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/designer.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+@@ -1576,6 +1576,7 @@ class IRC22CapacityCalculator:
+             "H_max_mm"           : round(H_max, 1),
+             "tq_req_1sided_mm"   : round(tq_req_1sided, 2),
+             "tq_req_2sided_mm"   : round(tq_req_2sided, 2),
++            "c_req_min_mm"       : round(c, 1),
+             "H_mm"               : H,
+             "H_limit_mm"         : round(H_limit, 3),
+             "H_limit_type"       : f"{'14' if n_sides == 1 else '20'}·tq·ε",
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+index d32c3ee..9204692 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+@@ -4235,7 +4235,7 @@ class PlateGirderBridge:
+             return round(v, nd) if isinstance(v, (int, float)) else v
+         out[KEY_SD_STIFF_METHOD]       = dr["stiff_method"]
+         out[KEY_SD_STIFF_INT_THICK]    = _rnum(dr["is_tq_mm"] if _is_custom_stiff else dr["stiff_int_thick_req"])
+-        out[KEY_SD_STIFF_INT_SPACING]  = _rnum(dr["is_c_mm"]  if _is_custom_stiff else dr["stiff_int_space_req"])
++        out[KEY_SD_STIFF_INT_SPACING]  = _rnum(dr["is_c_mm"]  if _is_custom_stiff else (dr.get("stiff_int_space_req") or dr.get("is_c_mm")))
+         out[KEY_SD_STIFF_END_THICK]    = _rnum(dr["bs_tq_mm"] if _is_custom_stiff else dr["stiff_end_thick_req"])
+         out[KEY_SD_STIFF_END_COUNT]    = dr["bs_n_plates"]
+         # Longitudinal: only the user can specify them; optimizer adds none.

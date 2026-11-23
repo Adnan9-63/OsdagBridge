@@ -1,0 +1,27 @@
+diff --git a/src/osdagbridge/desktop/ui/docks/input_dock.py b/src/osdagbridge/desktop/ui/docks/input_dock.py
+index 21864cf..8326ee9 100644
+--- a/src/osdagbridge/desktop/ui/docks/input_dock.py
++++ b/src/osdagbridge/desktop/ui/docks/input_dock.py
+@@ -1078,6 +1078,22 @@ class InputDock(QWidget):
+                     widget.addItem(text)
+                 self._set_combo_silently(widget, text)
+ 
++        # Restore custom material definitions and tracking from loaded OSI data
++        for mat_key, combo in self._material_combo_map.items():
++            selected = data.get(mat_key)
++            if selected and selected != MATERIAL_CUSTOM_OPTION:
++                prefix = mat_key + "."
++                mat_fields = {
++                    k[len(prefix):]: v for k, v in data.items()
++                    if k.startswith(prefix) and v is not None
++                }
++                if mat_fields:
++                    for k, v in data.items():
++                        if k.startswith(prefix) and v is not None:
++                            mat_fields[k] = v
++                    self._material_custom_fields[str(selected)] = mat_fields
++                self._material_previous_selection[mat_key] = str(selected)
++
+         # Mark required fields as changed so solve_extend_basic_input_dict
+         # runs on the next Design call and derives all computed defaults.
+         self.is_require_field_changed = True

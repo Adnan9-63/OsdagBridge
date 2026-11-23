@@ -1,0 +1,16 @@
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+index e8f2a1b..b9c3d4e 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+@@ -4273,6 +4273,11 @@ class PlateGirderBridge(BridgeSuperStructure):
+         out[KEY_SD_DEFL_ALLOW_LIVE]  = round(dr["defl_limit_live_mm"],  2)   # mm — allowable = L/800
+         out[KEY_SD_DEFL_ALLOW_TOTAL] = round(dr["defl_limit_total_mm"], 2)   # mm — allowable = L/600
+ 
++        # Ensure material grade is preserved in output_dict for reporting
++        selected_grade = str(inp.get(KEY_GIRDER, "")).strip()
++        out["steeldesign.details.material_grade"] = selected_grade
++        out[KEY_SD_SECTION_DESIGNATION] = out.get(KEY_SD_SECTION_DESIGNATION) or f"Welded Plate Girder ({selected_grade})"
++
+         # In store_design_results(), replace the stiffener section (── 5. Stiffener table ──) with:
+ 
+         grade = str(inp.get(KEY_GIRDER, ""))

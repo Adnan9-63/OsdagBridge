@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-11-20T21:54:58.858267",
+  "ui_vs_input_mismatches": [],
+  "stale_input_fields": [],
+  "missing_expected_outputs": [
+    {
+      "expected_output_prefix": "steeldesign.details.util.",
+      "severity": "HIGH"
+    }
+  ],
+  "custom_material_audits": [],
+  "status": "WARNINGS_FOUND"
+}

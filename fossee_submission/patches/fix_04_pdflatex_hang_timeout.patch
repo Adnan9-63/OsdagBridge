@@ -1,0 +1,15 @@
+diff --git a/src/osdagbridge/core/reports/report_generator.py b/src/osdagbridge/core/reports/report_generator.py
+index 5f46c7f..616ead9 100644
+--- a/src/osdagbridge/core/reports/report_generator.py
++++ b/src/osdagbridge/core/reports/report_generator.py
+@@ -958,8 +958,10 @@ def generate_report(payload, request):
+                 try:
+                     kwargs = {
+                         'cwd': tmp_dir,
++                        'stdin': subprocess.DEVNULL,
+                         'stdout': subprocess.PIPE,
+                         'stderr': subprocess.PIPE,
++                        'timeout': 60,
+                         'check': False,
+                         'env': os.environ.copy()
+                     }

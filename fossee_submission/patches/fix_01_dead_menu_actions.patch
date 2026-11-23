@@ -1,0 +1,54 @@
+diff --git a/src/osdagbridge/desktop/ui/template_page.py b/src/osdagbridge/desktop/ui/template_page.py
+index 9389434..e8c5345 100644
+--- a/src/osdagbridge/desktop/ui/template_page.py
++++ b/src/osdagbridge/desktop/ui/template_page.py
+@@ -1755,6 +1755,7 @@ class CustomWindow(QWidget):
+ 
+         save_log_action = QAction("Save Log Messages", self)
+         save_log_action.setShortcut(QKeySequence("Alt+M"))
++        save_log_action.triggered.connect(lambda: self.save_log_messages() if hasattr(self, "save_log_messages") else None)
+         file_menu.addAction(save_log_action)
+ 
+         create_report_action = QAction("Create Design Report", self)
+@@ -1778,6 +1779,7 @@ class CustomWindow(QWidget):
+ 
+         quit_action = QAction("Quit", self)
+         quit_action.setShortcut(QKeySequence("Shift+Q"))
++        quit_action.triggered.connect(self.close)
+         file_menu.addAction(quit_action)
+ 
+         graphics_menu = self.menu_bar.addMenu("Graphics")
+@@ -1801,14 +1803,17 @@ class CustomWindow(QWidget):
+ 
+         front_view_action = QAction("Show Front View", self)
+         front_view_action.setShortcut(QKeySequence("Alt+Shift+F"))
++        front_view_action.triggered.connect(lambda: self.cad_3d_widget.display.View_Front() if hasattr(self.cad_3d_widget, "display") and hasattr(self.cad_3d_widget.display, "View_Front") else None)
+         graphics_menu.addAction(front_view_action)
+         
+         top_view_action = QAction("Show Top View", self)
+         top_view_action.setShortcut(QKeySequence("Alt+Shift+T"))
++        top_view_action.triggered.connect(lambda: self.cad_3d_widget.display.View_Top() if hasattr(self.cad_3d_widget, "display") and hasattr(self.cad_3d_widget.display, "View_Top") else None)
+         graphics_menu.addAction(top_view_action)
+         
+         side_view_action = QAction("Show Side View", self)
+         side_view_action.setShortcut(QKeySequence("Alt+Shift+S"))
++        side_view_action.triggered.connect(lambda: self.cad_3d_widget.display.View_Right() if hasattr(self.cad_3d_widget, "display") and hasattr(self.cad_3d_widget.display, "View_Right") else None)
+         graphics_menu.addAction(side_view_action)
+ 
+         # Database Menu
+@@ -1821,6 +1826,7 @@ class CustomWindow(QWidget):
+         database_menu.addAction(output_csv_action)
+ 
+         input_osi_action = QAction("Save Inputs (.osi)", self)
++        input_osi_action.triggered.connect(lambda: self.saveOSI_inputs())
+         database_menu.addAction(input_osi_action)
+ 
+         download_database_menu = database_menu.addMenu("Download Database")
+@@ -1841,6 +1847,7 @@ class CustomWindow(QWidget):
+ 
+         reset_action = QAction("Reset", self)
+         reset_action.setShortcut(QKeySequence("Alt+R"))
++        reset_action.triggered.connect(lambda: self.input_dock.toggle_lock(confirm=True) if getattr(self.input_dock, "is_locked", False) else None)
+         database_menu.addAction(reset_action)
+ 
+         # Help Menu

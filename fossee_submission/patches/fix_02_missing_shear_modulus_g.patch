@@ -1,0 +1,21 @@
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/designer.py b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+index a148f92..8b9e4d1 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/designer.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+@@ -308,12 +308,10 @@ class BridgeConfig:
+         # Gs (shear modulus) is a required user/DB input (KEY_MATERIAL_GIRDER_G, stored GPa).
+         raw_g = bridge.input_dict.get(KEY_MATERIAL_GIRDER_G)
+         if raw_g in (None, ""):
+-            raise ValueError(
+-                f"Gs (shear modulus) is not set for grade "
+-                f"{bridge.basic_inputs.get(KEY_GIRDER)!r}. Populate it in the material "
+-                "database before running the design check."
+-            )
+-        Gs_MPa = float(raw_g) * 1000.0                  # GPa → MPa
++            # Graceful elastic calculation fallback: G = E / [2 * (1 + nu)]
++            Gs_MPa = Es_MPa / (2.0 * (1.0 + nu))
++        else:
++            Gs_MPa = float(raw_g) * 1000.0              # GPa → MPa
+ 
+         # Reinforcement grade comes from the Design Options dialog (required). Its yield
+         # strength is a property of that grade, looked up from the material DB — never an

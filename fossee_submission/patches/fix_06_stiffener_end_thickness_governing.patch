@@ -1,0 +1,30 @@
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/designer.py b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+index 3b3b982..778d009 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/designer.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/designer.py
+@@ -3577,7 +3577,11 @@ def run_design_check(
+         "stiff_method"              : capacity.shear_method,
+         "stiff_int_thick_req"       : capacity.details.get("intermediate_stiffener", {}).get("tq_req_1sided_mm"),
+         "stiff_int_space_req"       : capacity.details.get("intermediate_stiffener", {}).get("c_req_min_mm"),
+-        "stiff_end_thick_req"       : capacity.details.get("bearing_stiffener", {}).get("tq_req_bearing_mm"),
++        "stiff_end_thick_req"       : max(
++            capacity.details.get("bearing_stiffener", {}).get("tq_req_bearing_mm", 0.0) or 0.0,
++            capacity.details.get("bearing_stiffener", {}).get("tq_req_leg_mm", 0.0) or 0.0,
++            10.0
++        ),
+         # -- stiffener capacities --
+         "is_H_limit_mm"             : capacity.is_H_limit_mm,
+         "is_Iys_min_mm4"            : capacity.is_Iys_min_mm4,
+diff --git a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+index d32c3ee..6519087 100644
+--- a/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
++++ b/src/osdagbridge/core/bridge_types/plate_girder/plategirderbridge.py
+@@ -4236,7 +4236,7 @@ class PlateGirderBridge:
+         out[KEY_SD_STIFF_METHOD]       = dr["stiff_method"]
+         out[KEY_SD_STIFF_INT_THICK]    = _rnum(dr["is_tq_mm"] if _is_custom_stiff else dr["stiff_int_thick_req"])
+         out[KEY_SD_STIFF_INT_SPACING]  = _rnum(dr["is_c_mm"]  if _is_custom_stiff else dr["stiff_int_space_req"])
+-        out[KEY_SD_STIFF_END_THICK]    = _rnum(dr["bs_tq_mm"] if _is_custom_stiff else dr["stiff_end_thick_req"])
++        out[KEY_SD_STIFF_END_THICK]    = _rnum(dr["bs_tq_mm"] if (_is_custom_stiff and dr["bs_tq_mm"] > 0) else dr["stiff_end_thick_req"])
+         out[KEY_SD_STIFF_END_COUNT]    = dr["bs_n_plates"]
+         # Longitudinal: only the user can specify them; optimizer adds none.
+         _stiff_data  = inp.get("stiffener_by_member") or {}
