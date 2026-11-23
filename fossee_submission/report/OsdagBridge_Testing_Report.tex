@@ -15,6 +15,7 @@
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{seqsplit}
 
 \definecolor{fosseeblue}{RGB}{0, 75, 135}
 \definecolor{codebg}{RGB}{245, 247, 250}
@@ -175,20 +176,20 @@ Table~\ref{tab:ui_dict_comparison} presents a side-by-side comparison across ten
 \scriptsize
 \caption{Side-by-Side Comparison of UI Inputs vs. Internal Backend Dictionaries and Report Output}
 \label{tab:ui_dict_comparison}
-\begin{tabularx}{\textwidth}{p{2.6cm}p{1.8cm}p{3.2cm}p{3.4cm}p{2.4cm}c}
+\begin{tabularx}{\textwidth}{p{2.3cm}p{1.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xp{2.3cm}c}
 \toprule
 \textbf{Parameter} & \textbf{UI Input Widget} & \textbf{input\_dict Key \& Value} & \textbf{output\_dict Key \& Value} & \textbf{Report / OutputDock} & \textbf{Match?} \\
 \midrule
-Span Length & \texttt{25.0} m & \texttt{geometry.span}: 25.0 & \texttt{geometry.span}: 25.0 & \texttt{25.0 m} & \textcolor{passgreen}{\textbf{Yes}} \\
-Skew Angle & \texttt{0.0} deg & \texttt{geometry.skew\_angle}: 0.0 & \texttt{geometry.skew\_angle}: 0.0 & \texttt{0.0 deg} & \textcolor{passgreen}{\textbf{Yes}} \\
-Project Location & Akola, MH & \texttt{project.location}: 'Akola, MH' & (used in wind/seismic calc) & Akola, MH & \textcolor{passgreen}{\textbf{Yes}} \\
-Girder Depth $D$ & Auto / Calc & 1390.0 (trial sizing) & \texttt{steeldesign.details.total\_depth}: 1390.0 & \texttt{1390.0 mm} & \textcolor{passgreen}{\textbf{Yes}} \\
-Deck Slab Thickness & \texttt{250.0} mm & \texttt{typical\_section.deck\_thickness}: 250.0 & \texttt{deck.slab\_thickness}: 250.0 & \texttt{250.0 mm} & \textcolor{passgreen}{\textbf{Yes}} \\
-Default Steel Grade & \texttt{E 350A} & \texttt{material.girder}: 'E 350A' & \texttt{steeldesign.details.material\_grade}: 'E 350A' & \texttt{E 350A} & \textcolor{passgreen}{\textbf{Yes}} \\
-Custom Steel Grade & \texttt{custom\_350\_490} & \texttt{material.girder}: 'custom\_350\_490' & \texttt{steeldesign.details.material\_grade}: \texttt{None} & \textbf{Blank} (Issue 263) & \textcolor{failred}{\textbf{No}} \\
-Custom Concrete $f_{ck}$ & \texttt{45.0} MPa & \texttt{material.deck}: 'M 45' & $m = 5.88$, $I_z = 2,186,569.09\text{ cm}^4$ & $m = 5.88$ (Partially applied) & \textcolor{failred}{\textbf{Partial}} \\
-Intermediate Stiffener Spacing & \texttt{2030} mm (calc) & 2030.0 & \texttt{intermediate\_stiffener}: \texttt{None} & \textbf{---} in Table 5.7 (Issue 265) & \textcolor{failred}{\textbf{No}} \\
-End Bearing Stiffener Thickness & \texttt{10} mm (user) & 10.0 & \texttt{stiff\_end\_thick\_req}: \texttt{1.2} & \textbf{1.2 mm} (Issue 262) & \textcolor{failred}{\textbf{No}} \\
+Span Length & \texttt{25.0} m & \texttt{\footnotesize geometry.\-span}: 25.0 & \texttt{\footnotesize geometry.\-span}: 25.0 & \texttt{25.0 m} & \textcolor{passgreen}{\textbf{Yes}} \\
+Skew Angle & \texttt{0.0} deg & \texttt{\footnotesize geometry.\-skew\_\-angle}: 0.0 & \texttt{\footnotesize geometry.\-skew\_\-angle}: 0.0 & \texttt{0.0 deg} & \textcolor{passgreen}{\textbf{Yes}} \\
+Project Location & Akola, MH & \texttt{\footnotesize project.\-location}: 'Akola, MH' & (used in wind/seismic calc) & Akola, MH & \textcolor{passgreen}{\textbf{Yes}} \\
+Girder Depth $D$ & Auto / Calc & 1390.0 (trial sizing) & \texttt{\footnotesize steeldesign.\-details.\-total\_\-depth}: 1390.0 & \texttt{1390.0 mm} & \textcolor{passgreen}{\textbf{Yes}} \\
+Deck Slab Thickness & \texttt{250.0} mm & \texttt{\footnotesize typical\_\-section.\-deck\_\-thickness}: 250.0 & \texttt{\footnotesize deck.\-slab\_\-thickness}: 250.0 & \texttt{250.0 mm} & \textcolor{passgreen}{\textbf{Yes}} \\
+Default Steel Grade & \texttt{E 350A} & \texttt{\footnotesize material.\-girder}: 'E 350A' & \texttt{\footnotesize steeldesign.\-details.\-material\_\-grade}: 'E 350A' & \texttt{E 350A} & \textcolor{passgreen}{\textbf{Yes}} \\
+Custom Steel Grade & \texttt{custom\_\-350\_\-490} & \texttt{\footnotesize material.\-girder}: 'custom\_\-350\_\-490' & \texttt{\footnotesize steeldesign.\-details.\-material\_\-grade}: \texttt{None} & \textbf{Blank} (Issue 263) & \textcolor{failred}{\textbf{No}} \\
+Custom Concrete $f_{ck}$ & \texttt{45.0} MPa & \texttt{\footnotesize material.\-deck}: 'M 45' & $m = 5.88$, $I_z = 2,186,569.09\text{ cm}^4$ & $m = 5.88$ (Partially applied) & \textcolor{failred}{\textbf{Partial}} \\
+Intermediate Stiffener Spacing & \texttt{2030} mm (calc) & 2030.0 & \texttt{\footnotesize intermediate\_\-stiffener}: \texttt{None} & \textbf{---} in Table 5.7 (Issue 265) & \textcolor{failred}{\textbf{No}} \\
+End Bearing Stiffener Thickness & \texttt{10} mm (user) & 10.0 & \texttt{\footnotesize stiff\_\-end\_\-thick\_\-req}: \texttt{1.2} & \textbf{1.2 mm} (Issue 262) & \textcolor{failred}{\textbf{No}} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -219,7 +220,7 @@ Table~\ref{tab:custom_ab_results} presents the logged values directly from \text
 \small
 \caption{Logged Telemetry for Controlled Material A/B Runs (\texttt{test\_cases\_summary.json})}
 \label{tab:custom_ab_results}
-\begin{tabular}{lccc}
+\begin{tabularx}{\textwidth}{l l l >{\raggedright\arraybackslash}X}
 \toprule
 \textbf{Output Parameter} & \textbf{Run A (Default M25 / E250)} & \textbf{Run B (Custom M45 / 450)} & \textbf{Observed Solver Behavior} \\
 \midrule
@@ -232,7 +233,7 @@ Shear Stud Longitudinal Spacing & $315.35\text{ mm}$ & $315.35\text{ mm}$ & Unsc
 Reported Steel Grade & \texttt{E 250} & \texttt{None} (Blank) & Grade dropped in \texttt{output\_dict} \\
 Moment Capacity $M_d$ & \texttt{None} & \texttt{None} & Grade lookup defect \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \textbf{Key Findings:}
@@ -328,7 +329,7 @@ This creates an unphysical value in official design documentation (reported as I
 
 To enable rapid verification without waiting for 4-minute FEA solver runs, a standalone regression test suite was created in \texttt{fossee\_submission/tests/test\_fossee\_regression.py}.
 
-\begin{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\tiny, breaklines=true]
 ============================= test session starts =============================
 platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- python.exe
 cachedir: .pytest_cache
@@ -343,7 +344,7 @@ fossee_submission/tests/test_fossee_regression.py::test_reproduce_issue_04_inter
 fossee_submission/tests/test_fossee_regression.py::test_reproduce_issue_05_custom_material_osi_reload_state_loss PASSED [100%]
 
 ============================== 5 passed in 12.28s ==============================
-\end{verbatim}
+\end{lstlisting}
 
 All 5 regression tests execute directly against the codebase and pass in \textbf{12.28 seconds} (logged in \texttt{fossee\_submission/logs/pytest\_verification.log}).
 
@@ -434,27 +435,27 @@ All testing artifacts, logs, and patches are organized in \texttt{fossee\_submis
 To reproduce the findings from a clean clone:
 \begin{enumerate}
     \item \textbf{Activate Environment:}
-    \begin{verbatim}
-    conda activate osdagbridge-env
-    \end{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, breaklines=true]
+conda activate osdagbridge-env
+\end{lstlisting}
     \item \textbf{Run Regression Suite:}
-    \begin{verbatim}
-    pytest fossee_submission/tests/test_fossee_regression.py
-    \end{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, breaklines=true]
+pytest fossee_submission/tests/test_fossee_regression.py
+\end{lstlisting}
     All 5 bug-reproduction tests should execute and pass in approximately 12.28 seconds.
     \item \textbf{Run Deep Audit Suite:}
-    \begin{verbatim}
-    python fossee_submission/run_deep_audit.py
-    python fossee_submission/run_extended_audit.py
-    \end{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, breaklines=true]
+python fossee_submission/run_deep_audit.py
+python fossee_submission/run_extended_audit.py
+\end{lstlisting}
     \item \textbf{Verify Patches with Git:}
-    \begin{verbatim}
-    git apply --check fossee_submission/patches/fix_06_stiffener_end_thickness_governing.patch
-    \end{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, breaklines=true]
+git apply --check fossee_submission/patches/fix_06_stiffener_end_thickness_governing.patch
+\end{lstlisting}
     \item \textbf{Compile Report PDF:}
-    \begin{verbatim}
-    python fossee_submission/report/compile_report.py
-    \end{verbatim}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, breaklines=true]
+python fossee_submission/report/compile_report.py
+\end{lstlisting}
 \end{enumerate}
 
 \end{document}
